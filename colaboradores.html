@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>AstronomyDay</title>
+    <link rel="stylesheet" href="style.css">
+        <style>
+        /* Header básico para seu menu */
+        header {
+            background-color:#2a0c4db9;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+
+        header .logo h2 {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            color: #602dcf
+;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        nav ul li a:hover {
+            color: #9f72ff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="#">
+                <h2>AstronomyDay 🪐</h2>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="curiosidades.html">Curiosidades</a></li>
+                <li><a href="colaboradores.html">Colaboradores</a></li>
+            </ul>
+            
+        </nav>
+    </header>    
+    <main>
+    <div class="card-container">
+
+        <div class="card">
+            <div class="card__img">
+                <img src="imagens do site/fundo_julinha.png" alt="Fundo do card">
+            </div>
+            <div class="card__avatar">
+                <img src="imagens do site/julinha.png.jpg" alt="Avatar da Julinha">
+            </div>
+            <div class="card__title">Anna Júlia</div>
+            <div class="card__subtitle">Desenvolvedora do Projeto</div>
+            <div class="card__wrapper">
+                </a>
+                <a href="https://github.com/Julia-alt-0w0" target="_blank">
+                    <button class="card__btn card__btn-solid">GitHub</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__img">
+                <img src="imagens do site/fundo_sarah.png.jpg" alt="Fundo do card">
+            </div>
+            <div class="card__avatar">
+                <img src="imagens do site/sarah.png.jpg" alt="Avatar da Sarah">
+            </div>
+            <div class="card__title">Sara Katryne</div>
+            <div class="card__subtitle">Desenvolvedora do Projeto</div>
+            <div class="card__wrapper">
+                <a href="https://www.instagram.com/sarakatryne/" target="_blank">
+                     <button class="card__btn">Instagram</button>
+                </a>
+                <a href="https://github.com/SaraKatryne" target="_blank">
+                    <button class="card__btn card__btn-solid">GitHub</button>
+                </a>
+            </div>
+        </div>
+    
+</main>   
+</body>
+</html>

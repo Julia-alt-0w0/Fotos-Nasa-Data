@@ -1,30 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <title>Filtro de Imagens da NASA</title>
-  <link rel="stylesheet" href="style.css">
-  </head>
+    <meta charset="UTF-8" />
+    <title>AstronomyDay</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
 <body>
-  <h1>Filtrar Imagem da NASA por Data</h1>
 
-  <div class="search-controls">
-    <label for="data">Escolha uma data:</label>
-    <input type="date" id="data" />
-    <button type="button" class="btn" id="buscarBtn">
-      <strong>Buscar imagem</strong>
-      <div id="container-stars">
-        <div id="stars"></div>
-      </div>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <h2>AstronomyDay 🪐</h2>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="curiosidades.html">Curiosidades</a></li>
+                <li><a href="colaboradores.html">Colaboradores</a></li>
+            </ul>
+        </nav>
+    </header>
 
-      <div id="glow">
-        <div class="circle"></div>
-        <div class="circle"></div>
-      </div>
-    </button>
-  </div>
-  <div id="resultado"></div>
+    <main>
+        <h1 class="brilho">Bem vindo ao AstronomyDay</h1>
+        <p class="subtitle">Escolha uma data e descubra a imagem astronômica do dia:</p>
+        <div class="search-controls">
+            <label for="data">Escolha uma data:</label>
+            <input type="date" id="data" />
+            <button type="button" class="btn-space" id="buscarBtn">
+                <strong>BUSCAR DATA</strong>
+                <div id="container-stars"><div id="stars"></div></div>
+                <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+            </button>
+        </div>
 
-  <script src="app.js"></script>
+        <div id="loader" style="display: none;">
+            <div class="planet"></div>
+            <p class="loader-text">Buscando na galáxia...</p>
+        </div>
+
+        <div id="resultado"></div>
+
+        <section class="carousel-section">
+            <div class="card-3d">
+                <div><img class="carousel-image" src="imagens do site/foto.astro-1.webp" alt="Nebulosa de Órion"></div>
+                <div><img class="carousel-image" src="imagens do site/foto.astro-2.webp" alt="Galáxia de Andrômeda"></div>
+                <div><img class="carousel-image" src="imagens do site/foto.astro-3.jpg" alt="Pilares da Criação"></div>
+                <div><img class="carousel-image" src="imagens do site/foto.astro-4.jpg" alt="Supernova"></div>
+                <div><img class="carousel-image" src="imagens do site/foto.astro-5.webp" alt="Planeta Júpiter"></div>
+                <div><img class="carousel-image" src="imagens do site/foto.astro-6.jpeg" alt="Buraco Negro (simulação)"></div>
+                <div><img class="carousel-image" src="imagens do site/foto.astro-7.webp" alt="Galáxia do Sombreiro"></div>
+                <div><img class="carousel-image" src="imagens do site/foto.astro-8.webp" alt="Lua terrestre"></div>
+                <div><img class="carousel-image" src="imagens do site/foto.astro-9.webp" alt="Planeta Saturno"></div>
+                <div><img class="carousel-image" src="imagens do site/foto.astro-10.webp" alt="Aurora Boreal vista do espaço"></div>
+            </div>
+        </section>
+    <section class="scientists-section">
+    <h2>Cientistas Brilhantes</h2>
+
+    <div class="scientist-card">
+        <div class="scientist-photo">
+            <img src="imagens do site/cientista-carlsagan.png" alt="Foto de Carl Sagan">
+        </div>
+        <div class="scientist-info">
+            <h3>Carl Sagan</h3>
+            <p>
+                Carl Sagan foi um astrônomo, cosmólogo e um dos maiores divulgadores científicos da história. Através de sua série "Cosmos", ele tornou as maravilhas do universo acessíveis a milhões de pessoas, inspirando uma geração inteira a olhar para as estrelas com admiração e curiosidade.
+            </p>
+        </div>
+    </div>
+
+    <div class="scientist-card">
+        <div class="scientist-photo">
+            <img src="https://i.imgur.com/G2yY45B.jpeg" alt="Foto de Katherine Johnson">
+        </div>
+        <div class="scientist-info">
+            <h3>Katherine Johnson</h3>
+            <p>
+                Uma matemática pioneira da NASA, cujos cálculos de mecânica orbital foram essenciais para o sucesso das primeiras missões espaciais dos EUA, incluindo o voo de Alan Shepard e a missão Apollo 11 à Lua. Seu trabalho superou barreiras raciais e de gênero, provando que a mente humana não tem limites.
+            </p>
+        </div>
+    </div>
+    <div class="scientist-card">
+        <div class="scientist-photo">
+            <img src="https://i.imgur.com/G2yY45B.jpeg" alt="Foto de Katherine Johnson">
+        </div>
+        <div class="scientist-info">
+            <h3>Katherine Johnson</h3>
+            <p>
+                Uma matemática pioneira da NASA, cujos cálculos de mecânica orbital foram essenciais para o sucesso das primeiras missões espaciais dos EUA, incluindo o voo de Alan Shepard e a missão Apollo 11 à Lua. Seu trabalho superou barreiras raciais e de gênero, provando que a mente humana não tem limites.
+            </p>
+        </div>
+    </div>
+    <div class="scientist-card">
+        <div class="scientist-photo">
+            <img src="https://i.imgur.com/G2yY45B.jpeg" alt="Foto de Katherine Johnson">
+        </div>
+        <div class="scientist-info">
+            <h3>Katherine Johnson</h3>
+            <p>
+                Uma matemática pioneira da NASA, cujos cálculos de mecânica orbital foram essenciais para o sucesso das primeiras missões espaciais dos EUA, incluindo o voo de Alan Shepard e a missão Apollo 11 à Lua. Seu trabalho superou barreiras raciais e de gênero, provando que a mente humana não tem limites.
+            </p>
+        </div>
+    </div>
+    <div class="scientist-card">
+        <div class="scientist-photo">
+            <img src="https://i.imgur.com/G2yY45B.jpeg" alt="Foto de Katherine Johnson">
+        </div>
+        <div class="scientist-info">
+            <h3>Katherine Johnson</h3>
+            <p>
+                Uma matemática pioneira da NASA, cujos cálculos de mecânica orbital foram essenciais para o sucesso das primeiras missões espaciais dos EUA, incluindo o voo de Alan Shepard e a missão Apollo 11 à Lua. Seu trabalho superou barreiras raciais e de gênero, provando que a mente humana não tem limites.
+            </p>
+        </div>
+    </div>
+</section>
+
+    <script src="app.js"></script>
 </body>
-</html>

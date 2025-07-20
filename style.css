@@ -1,54 +1,633 @@
+/* Estilos Gerais */
 body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background: #0b1d2c;
-  color: white;
-  text-align: center; /* Mantém o h1 e a div resultado centralizados */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    background: #0e1f30;
+    color: #f7f7f7;
+    text-align: center;
 }
 
-input, button {
-  padding: 10px;
-  margin-top: 10px; /* Isso pode ser ajustado ou removido quando usando Flexbox */
-  font-size: 16px;
+main {
+    padding: 20px;
 }
 
-button {
-  /* Estes estilos gerais para 'button' serão sobrepostos pelo '.btn' */
-  background-color: #1e90ff;
-  color: white;
-  border: none;
-  border-radius: 5px;
+/* efeito brilhante da mensagem de bem vindo*/
+.brilho {
+  color: #fefeff;
+  text-shadow: 0 0 5px #998db3,
+               0 0 10px #9f72ff,
+               0 0 20px #9f72ff,
+               0 0 40px #9f72ff;
+  animation: pulsar 2s infinite;
+}
+/*cor do subtítulo*/
+.subtitle {
+    font-size: 1.2rem;
+    color: #fffdfd;
+    margin-top: -15px;
+}
+@keyframes pulsar {
+  20% {
+    text-shadow: 0 0 5px #9f72ff,
+                 0 0 10px #9f72ff,
+                 0 0 20px #9f72ff,
+                 0 0 40px #9f72ff;
+  }
+  50% {
+    text-shadow: 0 0 2px #9f72ff,
+                 0 0 5px #9f72ff,
+                 0 0 10px #9f72ff,
+                 0 0 20px #9f72ff;
+  }
+  100% {
+    text-shadow: 0 0 5px #9f72ff,
+                 0 0 10px #9f72ff,
+                 0 0 20px #9f72ff,
+                 0 0 40px #9f72ff;
+  }
 }
 
-img {
-  margin-top: 20px;
-  border-radius: 10px;
+
+/* --- ESTILOS DO CABEÇALHO --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #2a0c4db9;
+    border-bottom: 1px solid #0d151b;
+}
+/*cor do título do site*/
+header .logo a h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: rgb(252, 252, 252);
+    display: inline-block;
 }
 
-/* --- ESTILOS PARA O ALINHAMENTO DO INPUT E BOTÃO --- */
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+header a {
+    text-decoration: none;
+    color: #e0e0e0;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.2s, color 0.3s;
+}
+
+header a:hover {
+    background-color: #660cdb46;
+    transform: scale(1.05);
+    color: #ffffff;
+}
+
+header nav a {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- CONTROLES DE BUSCA --- */
 .search-controls {
-  display: flex; /* Transforma o container em um container flexível */
-  align-items: center; /* Alinha os itens verticalmente no centro */
-  margin-top: 20px;
-  gap: 15px; /* Adiciona um espaço entre os itens flexíveis */
-  /* Ajuste a largura do input para melhor visualização ao lado do botão */
-  justify-content: center; /* Centraliza os itens flexíveis horizontalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    gap: 15px;
 }
 
 .search-controls label {
-  /* Pode precisar de ajustes de margem se estiverem muito grudados */
-  margin-right: 5px; /* Pequeno espaço entre o label e o input */
+    font-size: 1rem;
 }
 
-.search-controls input {
-  /* Removendo a margem superior padrão que pode atrapalhar o Flexbox */
-  margin-top: 0;
-  /* Definir uma largura pode ajudar no alinhamento */
-  width: 180px; /* Exemplo de largura para o campo de data */
+.search-controls input[type="date"] {
+    background-color: #1c2e3f;
+    color: white;
+    border: 1px solid #3c5166;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
 }
 
-/* --- ESTILOS DO BOTÃO "BUSCAR IMAGEM" COM TEMA DE ESPAÇO --- */
-/* (Baseado no código do Uiverse.io por StealthWorm) */
+/* --- ESTILOS DO BOTÃO 'SPACE' --- */
+.btn-space {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13rem;
+    overflow: hidden;
+    height: 3rem;
+    background-size: 300% 300%;
+    cursor: pointer;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+    transition: 0.5s;
+    animation: gradient_301 5s ease infinite;
+    border: double 4px transparent;
+    background-image: linear-gradient(#212121, #212121),
+      linear-gradient(137.48deg,
+          #ffdb3b 10%,
+          #fe53bb 45%,
+          #8f51ea 67%,
+          #0044ff 87%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    position: relative;
+}
+
+.btn-space #container-stars {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+}
+
+.btn-space strong {
+    z-index: 2;
+    font-family: "Avalors Personal Use", 'Segoe UI', sans-serif;
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #ffffff;
+    text-shadow: 0 0 4px white;
+}
+
+.btn-space #glow {
+    position: absolute;
+    display: flex;
+    width: 12rem;
+}
+
+.btn-space .circle {
+    width: 100%;
+    height: 30px;
+    filter: blur(2rem);
+    animation: pulse_3011 4s infinite;
+    z-index: -1;
+}
+
+.btn-space .circle:nth-of-type(1) {
+    background: rgba(254, 83, 186, 0.636);
+}
+
+.btn-space .circle:nth-of-type(2) {
+    background: rgba(142, 81, 234, 0.704);
+}
+
+.btn-space:hover #container-stars {
+    z-index: 1;
+    background-color: #212121;
+}
+
+.btn-space:hover {
+    transform: scale(1.1);
+}
+
+.btn-space:active {
+    border: double 4px #fe53bb;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    animation: none;
+}
+
+.btn-space:active .circle {
+    background: #fe53bb;
+}
+
+.btn-space #stars {
+    position: relative;
+    background: transparent;
+    width: 200rem;
+    height: 200rem;
+}
+
+.btn-space #stars::after, .btn-space #stars::before {
+    content: "";
+    position: absolute;
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+}
+
+.btn-space #stars::after {
+    top: -10rem;
+    left: -100rem;
+    width: 100%;
+    height: 100%;
+    animation: animStarRotate 90s linear infinite;
+}
+
+.btn-space #stars::before {
+    top: 0;
+    left: -50%;
+    width: 170%;
+    height: 500%;
+    animation: animStar 60s linear infinite;
+    opacity: 0.5;
+}
+
+/* --- ANIMAÇÕES DO BOTÃO --- */
+@keyframes animStar { from { transform: translateY(0); } to { transform: translateY(-135rem); } }
+@keyframes animStarRotate { from { transform: rotate(360deg); } to { transform: rotate(0); } }
+@keyframes gradient_301 { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes pulse_3011 { 0% { transform: scale(0.75); box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 0, 0, 0); } 100% { transform: scale(0.75); box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); } }
+
+
+/* --- ESTILOS DO LOADER DE PLANETA --- */
+#loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.loader-text {
+    color: #8a9eb2;
+    font-size: 1.1rem;
+}
+
+.planet {
+    display: block;
+    width: 125px;
+    height: 125px;
+    position: relative;
+    transform-style: preserve-3d;
+    border-radius: 50%;
+    background: #fcc96b;
+    background: linear-gradient(180deg, #fcc96b 0%, #fcc96b 15%, #f7ae01 15%, #f7ae01 19%, #fcc96b 19%, #fcc96b 22%, #f7ae01 22%, #f7ae01 28%, #fcc96b 28%, #fcc96b 31%, #fcc96b 33%, #fcc96b 36%, #f7ae01 36%, #f7ae01 48%, #fcc96b 48%, #fcc96b 55%, #f7ae01 55%, #f7ae01 66%, #fcc96b 66%, #fcc96b 70%, #f7ae01 70%, #f7ae01 73%, #fcc96b 73%, #fcc96b 82%, #f7ae01 82%, #c7ba9d 86%, #fcc96b 86%);
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.25), inset 8px -4px 6px rgba(199, 128, 0, 0.5), inset -8px 4px 8px rgba(255, 235, 199, 0.5), inset 20px -5px 12px #f7ae01, 0 0 100px #ffffff59;
+    transform: rotateZ(-15deg);
+}
+
+.planet::before, .planet::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-top-width: 0;
+    border-radius: 50%;
+}
+
+.planet::before {
+    border: 16px solid #e1a519;
+    box-shadow: 0 -2px 0 #c18620;
+    animation: rings1 0.8s infinite linear;
+}
+
+.planet::after {
+    border: 8px solid #d48b0c;
+    box-shadow: 0 -2px 0 #b99309;
+    animation: rings2 0.8s infinite linear;
+}
+
+@keyframes rings1 { 0% { transform: rotateX(65deg) rotateZ(0deg) scale(1.75); } 100% { transform: rotateX(65deg) rotateZ(360deg) scale(1.75); } }
+@keyframes rings2 { 0% { transform: rotateX(65deg) rotateZ(0deg) scale(1.7); } 100% { transform: rotateX(65deg) rotateZ(360deg) scale(1.7); } }
+
+
+/* --- ÁREA DE RESULTADO --- */
+#resultado {
+    margin: 40px auto 0;
+    max-width: 800px;
+    text-align: center;
+}
+
+#resultado img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#resultado h2 {
+    font-size: 1.8rem;
+    color: white;
+}
+
+#resultado p {
+    line-height: 1.6;
+    font-size: 1rem;
+    text-align: center; /* Alinhamento centralizado como preferido */
+    padding: 0 10px;
+}
+
+#resultado small {
+    display: block;
+    margin-top: 15px;
+    color: #8a9eb2;
+}
+/*CARDS JULINHA E SARAH*/
+.card__img img, .card__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra todo o espaço sem distorcer */
+}
+
+/* Recria o .card-container que apagamos, mas para os novos cards */
+.card-container {
+    max-width: 900px;
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* --- ESTILOS DO CARD DE PERFIL --- */
+.card {
+  --main-color: #000;
+  --submain-color: #78858F;
+  --bg-color: #eee5e5;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: relative;
+  width: 300px;
+  height: 384px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  background: var(--bg-color);
+}
+
+.card__img {
+  height: 192px;
+  width: 100%;
+}
+
+.card__img svg, .card__img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  object-fit: cover;
+}
+
+.card__avatar {
+  position: absolute;
+  width: 114px;
+  height: 114px;
+  background: var(--bg-color);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: calc(50% - 57px);
+}
+
+.card__avatar svg, .card__avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+
+.card__title {
+  margin-top: 60px;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--main-color);
+}
+
+.card__subtitle {
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--submain-color);
+}
+
+.card__wrapper {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+}
+
+.card__btn {
+  width: 90px;
+  height: 35px;
+  border: 2px solid var(--main-color);
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--main-color);
+  background: var(--bg-color);
+  text-transform: uppercase;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.card__btn-solid {
+  background: var(--main-color);
+  color: var(--bg-color);
+}
+
+.card__btn:hover {
+  background: var(--main-color);
+  color: var(--bg-color);
+}
+
+.card__btn-solid:hover {
+  background: var(--bg-color);
+  color: var(--main-color);
+}
+
+
+/* --- ESTILOS DO CARROSSEL 3D --- */
+
+
+.carousel-section {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-section h2 {
+    font-size: 2rem;
+    margin-bottom: 60px;
+}
+
+/* Animações principais (sem alteração) */
+@keyframes autoRun3d {
+  from { transform: perspective(800px) rotateY(-360deg); }
+  to { transform: perspective(800px) rotateY(0deg); }
+}
+@keyframes animateBrightness {
+  10% { filter: brightness(1); }
+  50% { filter: brightness(0.1); }
+  90% { filter: brightness(1); }
+}
+
+/* Container do Carrossel (valores ajustados) */
+.card-3d {
+  position: relative;
+  width: 600px;  /* AJUSTADO */
+  height: 300px; /* AJUSTADO */
+  transform-style: preserve-3d;
+  transform: perspective(800px);
+  animation: autoRun3d 20s linear infinite;
+  will-change: transform;
+}
+
+/* Cards Individuais (valores ajustados) */
+.card-3d div {
+  position: absolute;
+  width: 120px;  /* AJUSTADO */
+  height: 170px; /* AJUSTADO */
+  background-color: rgba(199, 199, 199, 0);
+  border: solid 2px rgba(211, 211, 211, 0);
+  border-radius: 0.5rem;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  animation: animateBrightness 20s linear infinite;
+  transition-duration: 200ms;
+  will-change: transform, filter;
+}
+
+/* Posicionamento dos 10 cards (Raio do carrossel ajustado) */
+.card-3d div:nth-child(1) { transform: translate(-50%,-50%) rotateY(0deg) translateZ(220px); animation-delay: -0s; }
+.card-3d div:nth-child(2) { transform: translate(-50%,-50%) rotateY(36deg) translateZ(220px); animation-delay: -2s; }
+.card-3d div:nth-child(3) { transform: translate(-50%,-50%) rotateY(72deg) translateZ(220px); animation-delay: -4s; }
+.card-3d div:nth-child(4) { transform: translate(-50%,-50%) rotateY(108deg) translateZ(220px); animation-delay: -6s; }
+.card-3d div:nth-child(5) { transform: translate(-50%,-50%) rotateY(144deg) translateZ(220px); animation-delay: -8s; }
+.card-3d div:nth-child(6) { transform: translate(-50%,-50%) rotateY(180deg) translateZ(220px); animation-delay: -10s; }
+.card-3d div:nth-child(7) { transform: translate(-50%,-50%) rotateY(216deg) translateZ(220px); animation-delay: -12s; }
+.card-3d div:nth-child(8) { transform: translate(-50%,-50%) rotateY(252deg) translateZ(220px); animation-delay: -14s; }
+.card-3d div:nth-child(9) { transform: translate(-50%,-50%) rotateY(288deg) translateZ(220px); animation-delay: -16s; }
+.card-3d div:nth-child(10){ transform: translate(-50%,-50%) rotateY(324deg) translateZ(220px); animation-delay: -18s; }
+
+/* Estilo para as imagens dentro dos cards do carrossel */
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+
+.scientists-section {
+    margin-top: 80px;
+    background-color: #594885; 
+    padding: 40px 20px;       /* Adiciona espaçamento interno (40px em cima/baixo, 20px nas laterais) */
+    border-radius: 16px;      /* Arredonda as bordas da seção inteira */
+}
+
+.scientists-section h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.scientist-card {
+    display: flex; /* Ativa o Flexbox para criar as colunas */
+    align-items: center; /* Alinha a foto e o texto verticalmente */
+    gap: 30px; /* Espaço entre a foto e o texto */
+    
+    max-width: 1200px;
+    margin: 0 auto 30px auto; /* Centraliza o card e adiciona espaço abaixo */
+    padding: 30px;
+    background-color: #1c2e3f;
+    border-radius: 12px;
+    border: 1px solid #3c5166;
+    text-align: left; /* Alinha o texto à esquerda dentro do card */
+}
+
+.scientist-photo {
+    flex-shrink: 0; /* Impede que a foto seja espremida */
+    width: 150px;
+    height: 150px;
+}
+
+.scientist-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a foto preencha o espaço sem distorcer */
+    border-radius: 5%; /* Deixa a foto redonda */
+    border: 3px solid #8f51ea;
+}
+
+.scientist-info h3 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #8f51ea; /* Usa a mesma cor dos títulos dos outros cards */
+}
+
+.scientist-info p {
+    line-height: 1.7;
+    color: #e0e0e0;
+}
+
+
+/* --- AJUSTE PARA CELULARES (Layout Responsivo) --- */
+@media (max-width: 768px) {
+    .scientist-card {
+        flex-direction: column; /* Coloca a foto em cima do texto */
+        text-align: center; /* Centraliza o texto no modo coluna */
+    }
+
+    .scientist-info h3 {
+        margin-top: 15px; /* Adiciona espaço acima do nome quando em coluna */
+    }
+    
+}
+
+/*Curiosidades*/
+/* --- ESTILOS DOS CARDS DE CURIOSIDADES (ASTROS) --- */
+
+.astro-card {
+    background-color: #1c2e3f;
+    border-radius: 16px;
+    border: 1px solid #3c5166;
+    overflow: hidden; /* Garante que a imagem não saia para fora das bordas arredondadas */
+    max-width: 350px; /* Define uma largura máxima para cada card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.astro-card:hover {
+    transform: translateY(-10px); /* Efeito de flutuar ao passar o mouse */
+    box-shadow: 0 10px 30px rgba(143, 81, 234, 0.3);
+}
+
+.astro-card__image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
+    display: block;
+}
+
+.astro-card__content {
+    padding: 25px;
+}
+
+.astro-card__content h3 {
+    margin-top: 0;
+    font-size: 1.6rem;
+    color: #8f51ea; /* Cor roxa do tema */
+}
+
+.astro-card__content p {
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+/*BOTÃO DE SAIBA MAIS DE CURIOSIDADES*/
+/* Botão SPACE */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap");
+
 .btn {
   display: flex;
   justify-content: center;
@@ -57,24 +636,25 @@ img {
   overflow: hidden;
   height: 3rem;
   background-size: 300% 300%;
-  cursor: pointer;
   backdrop-filter: blur(1rem);
   border-radius: 5rem;
   transition: 0.5s;
   animation: gradient_301 5s ease infinite;
   border: double 4px transparent;
-  background-image: linear-gradient(#212121, #212121),
+  background-image: linear-gradient(#161a25, #161a25),
     linear-gradient(
       137.48deg,
-      #ffdb3b 10%,
-      #fe53bb 45%,
-      #8f51ea 67%,
-      #0044ff 87%
+      #f5434f 10%,
+      #631e29 45%,
+      #000000 67%,
+      #161a25 87%
     );
   background-origin: border-box;
   background-clip: content-box, border-box;
-  /* Remova o margin-top padrão do button para o Flexbox controlar */
-  margin-top: 0;
+  font-family: "Orbitron", sans-serif;
+  cursor: pointer;
+  position: relative;
+  margin: 0 auto; /* centraliza horizontalmente */
 }
 
 #container-stars {
@@ -90,7 +670,7 @@ img {
 
 strong {
   z-index: 2;
-  font-family: "Avalors Personal Use";
+  font-family: "Orbitron", sans-serif;
   font-size: 12px;
   letter-spacing: 5px;
   color: #ffffff;
@@ -101,27 +681,38 @@ strong {
   position: absolute;
   display: flex;
   width: 12rem;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.circle-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: orbit 5s linear infinite;
 }
 
 .circle {
-  width: 100%;
+  position: absolute;
+  width: 30px;
   height: 30px;
+  border-radius: 50%;
   filter: blur(2rem);
-  animation: pulse_3011 4s infinite;
-  z-index: -1;
 }
 
 .circle:nth-of-type(1) {
-  background: rgba(254, 83, 186, 0.636);
+  background: rgba(245, 67, 79, 0.636);
+  animation: orbit 8s linear infinite;
 }
 
 .circle:nth-of-type(2) {
-  background: rgba(142, 81, 234, 0.704);
+  background: rgba(99, 30, 41, 0.704);
+  animation: orbit 10s linear infinite;
 }
 
 .btn:hover #container-stars {
   z-index: 1;
-  background-color: #212121;
+  background-color: #161a25;
 }
 
 .btn:hover {
@@ -129,14 +720,23 @@ strong {
 }
 
 .btn:active {
-  border: double 4px #fe53bb;
+  border: double 4px #631e29;
   background-origin: border-box;
   background-clip: content-box, border-box;
   animation: none;
 }
 
 .btn:active .circle {
-  background: #fe53bb;
+  background: #631e29;
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(100px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(100px) rotate(-360deg);
+  }
 }
 
 #stars {
@@ -154,10 +754,7 @@ strong {
   width: 100%;
   height: 100%;
   animation: animStarRotate 90s linear infinite;
-}
-
-#stars::after {
-  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-image: radial-gradient(#000000 1px, transparent 1%);
   background-size: 50px 50px;
 }
 
@@ -169,10 +766,7 @@ strong {
   width: 170%;
   height: 500%;
   animation: animStar 60s linear infinite;
-}
-
-#stars::before {
-  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-image: radial-gradient(#726f6f 1px, transparent 1%);
   background-size: 50px 50px;
   opacity: 0.5;
 }
@@ -181,49 +775,42 @@ strong {
   from {
     transform: translateY(0);
   }
-
-  to {
-    transform: translateY(-135rem);
-  }
 }
 
-@keyframes animStarRotate {
-  from {
-    transform: rotate(360deg);
-  }
-
-  to {
-    transform: rotate(0);
-  }
+body {
+    /* Mantenha suas outras configurações de body, como a cor de fundo */
+    background-color: #000;
 }
 
-@keyframes gradient_301 {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
+@keyframes moverEstrelas {
+    from { transform: translateY(200px); }
+    to   { transform: translateY(-20px); } /* Define a distância que as estrelas rolam */
 }
 
-@keyframes pulse_3011 {
-  0% {
-    transform: scale(0.75);
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-  }
-
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-  }
-
-  100% {
-    transform: scale(0.75);
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-  }
+/* Camada de estrelas pequenas */
+.camada-estrelas-1 {
+    background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -3; /* Fica bem no fundo */
+    animation: moverEstrelas 20s linear infinite;
+    opacity: 0.5;
 }
+
+/* Camada de estrelas médias */
+.camada-estrelas-2 {
+    background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    transform: scale(1.5); /* Aumenta o tamanho das estrelas */
+    animation: moverEstrelas 120s linear infinite;
+    opacity: 0.7;
+}
+
