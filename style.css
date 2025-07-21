@@ -810,3 +810,41 @@ strong {
     opacity: 0.7;
 }
 
+/* ===== FUNDO DE ESTRELAS ANIMADO (OPÇÃO RECOMENDADA) ===== */
+        body {
+            background-color: #000;
+            margin: 0; /* Remove margens padrão do navegador */
+        }
+
+        @keyframes moverEstrelas {
+            from { transform: translateY(0px); }
+            to   { transform: translateY(-2000px); } /* Define a distância que as estrelas rolam */
+        }
+
+        /* Camada de estrelas pequenas */
+        .camada-estrelas-1 {
+            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -3; /* Fica bem no fundo */
+            animation: moverEstrelas 200s linear infinite;
+            opacity: 0.5;
+        }
+
+        /* Camada de estrelas médias */
+        .camada-estrelas-2 {
+            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -2;
+            transform: scale(1.5); /* Aumenta o tamanho das estrelas */
+            animation: moverEstrelas 150s linear infinite;
+            opacity: 0.7;
+        }
+

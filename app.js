@@ -1,10 +1,11 @@
-// Chave da API da NASA (use a sua ou a de demonstração)
+// Chave da API da NASA
 const MINHA_CHAVE_PESSOAL = "MffKvzzh1DwKdPDD6kkArNgDd5u60g4QRur3yOvx";
 const apiKey = MINHA_CHAVE_PESSOAL || "DEMO_KEY";
 
 // Referências aos elementos da página
 const loader = document.getElementById("loader");
 const buscarBtn = document.getElementById("buscarBtn");
+const resultadoDiv = document.getElementById("resultado"); // Movido para o escopo global para ser acessível por ambas as funções
 
 /**
  * Função para traduzir texto usando a API MyMemory.
@@ -42,7 +43,6 @@ async function traduzirTexto(textoParaTraduzir) {
 // Evento de clique no botão de busca
 buscarBtn.addEventListener("click", async () => {
     const dataInput = document.getElementById("data");
-    const resultadoDiv = document.getElementById("resultado");
     const data = dataInput.value;
 
     if (!data) {
@@ -79,13 +79,18 @@ buscarBtn.addEventListener("click", async () => {
                 <p>${explicacaoTraduzida}</p>
                 <small>Data: ${dadosNasa.date}</small>
             `;
-        } else {
+            // ---> CORREÇÃO 1: SALVANDO O RESULTADO DE IMAGEM <---
+            localStorage.setItem('ultimaBuscaApod', resultadoDiv.innerHTML);
+
+        } else { // Caso seja um vídeo ou outro tipo de mídia
             const tituloTraduzido = await traduzirTexto(dadosNasa.title);
             resultadoDiv.innerHTML = `
                 <h2>${tituloTraduzido}</h2>
                 <p>A mídia para esta data é um vídeo ou outro formato. Você pode vê-lo no site da NASA.</p>
                 <a href="${dadosNasa.url}" target="_blank">Ver mídia original</a>
             `;
+            // ---> CORREÇÃO 1: SALVANDO O RESULTADO DE VÍDEO <---
+            localStorage.setItem('ultimaBuscaApod', resultadoDiv.innerHTML);
         }
     } catch (erro) {
         resultadoDiv.innerHTML = `<p style='color:red;'>${erro.message} 😢</p>`;
@@ -93,5 +98,16 @@ buscarBtn.addEventListener("click", async () => {
     } finally {
         // Esconde o loader, não importa se deu certo ou errado
         loader.style.display = 'none';
+    }
+});
+
+
+// ---> CORREÇÃO 2: POSICIONAMENTO CORRETO DO CÓDIGO DE CARREGAMENTO <---
+// Este código agora está FORA do evento de clique e será executado UMA VEZ quando a página carregar.
+document.addEventListener('DOMContentLoaded', () => {
+    const buscaSalva = localStorage.getItem('ultimaBuscaApod');
+
+    if (buscaSalva) {
+        resultadoDiv.innerHTML = buscaSalva;
     }
 });

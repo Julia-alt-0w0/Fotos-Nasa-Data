@@ -6,7 +6,7 @@
     <title>Curiosidades dos Astros do Sistema Solar - AstronomyDay</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-        /* Header básico para seu menu */
+        /* Mas mantendo como está para não quebrar seu layout atual */
         header {
             background-color:#2a0c4db9;
             color: white;
@@ -16,84 +16,18 @@
             align-items: center;
             position: sticky;
             top: 0;
-            z-index: 100; /* Aumentei o z-index para garantir que fique sempre na frente */
+            z-index: 100;
         }
-
-        header .logo h2 {
-            margin: 0;
-            font-family: 'Orbitron', sans-serif;
-            color: #602dcf;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        nav ul li a:hover {
-            color: #9f72ff;
-        }
-
-        main {
-            background-color: transparent; /* Deixei transparente para o fundo de estrelas aparecer */
-            position: relative;
-            min-height: 100vh;
-            overflow-x: hidden;
-            padding: 2rem;
-            z-index: 10; /* Garante que o conteúdo fique sobre o fundo */
-        }
-
-        /* ===== FUNDO DE ESTRELAS ANIMADO (OPÇÃO RECOMENDADA) ===== */
-        body {
-            background-color: #000;
-            margin: 0; /* Remove margens padrão do navegador */
-        }
-
-        @keyframes moverEstrelas {
-            from { transform: translateY(0px); }
-            to   { transform: translateY(-2000px); } /* Define a distância que as estrelas rolam */
-        }
-
-        /* Camada de estrelas pequenas */
-        .camada-estrelas-1 {
-            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -3; /* Fica bem no fundo */
-            animation: moverEstrelas 200s linear infinite;
-            opacity: 0.5;
-        }
-
-        /* Camada de estrelas médias */
-        .camada-estrelas-2 {
-            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -2;
-            transform: scale(1.5); /* Aumenta o tamanho das estrelas */
-            animation: moverEstrelas 150s linear infinite;
-            opacity: 0.7;
-        }
-
-        /* ----- Adicione aqui o restante do seu CSS que estava no arquivo style.css se necessário ----- */
-        /* Por exemplo, os estilos de .card-container, .astro-card, .btn, etc. */
+        header .logo h2 { margin: 0; font-family: 'Orbitron', sans-serif; color: #602dcf; }
+        nav ul { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 500; font-family: 'Orbitron', sans-serif; }
+        nav ul li a:hover { color: #9f72ff; }
+        main { background-color: transparent; position: relative; min-height: 100vh; overflow-x: hidden; padding: 2rem; z-index: 10; }
         
+        /* Adicionando um estilo para a tag <a> não alterar a aparência do botão */
+        .card-container a {
+            text-decoration: none; /* Remove o sublinhado do link */
+        }
     </style>
 </head>
 <body>
@@ -129,16 +63,13 @@
                     <p>
                         O Sol é a estrela central do Sistema Solar, responsável por fornecer luz e calor essenciais para a vida na Terra. Ele é composto principalmente de hidrogênio e hélio e tem energia gerada por fusão nuclear em seu núcleo.
                     </p>
-                    <button type="button" class="btn">
-                        <strong>SAIBA MAIS</strong>
-                        <div id="container-stars">
-                            <div id="stars"></div>
-                        </div>
-                        <div id="glow">
-                            <div class="circle"></div>
-                            <div class="circle"></div>
-                        </div>
-                    </button>
+                    <a href="https://pt.wikipedia.org/wiki/Sol" target="_blank" rel="noopener noreferrer">
+                        <button type="button" class="btn">
+                            <strong>SAIBA MAIS</strong>
+                            <div id="container-stars"><div id="stars"></div></div>
+                            <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+                        </button>
+                    </a>
                 </div>
             </div>
 
@@ -152,16 +83,13 @@
                         Mercúrio é o planeta mais próximo do Sol e o menor do Sistema Solar. Não possui atmosfera significativa e apresenta temperaturas extremamente altas durante o dia e muito baixas à noite.
                     </p>
                     <br />
-                    <button type="button" class="btn">
-                        <strong>SAIBA MAIS</strong>
-                        <div id="container-stars">
-                            <div id="stars"></div>
-                        </div>
-                        <div id="glow">
-                            <div class="circle"></div>
-                            <div class="circle"></div>
-                        </div>
-                    </button>
+                    <a href="https://pt.wikipedia.org/wiki/Mercúrio_(planeta)" target="_blank" rel="noopener noreferrer">
+                        <button type="button" class="btn">
+                            <strong>SAIBA MAIS</strong>
+                            <div id="container-stars"><div id="stars"></div></div>
+                            <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+                        </button>
+                    </a>
                 </div>
             </div>
 
@@ -174,16 +102,13 @@
                     <p>
                         A Terra é o único planeta conhecido que abriga vida. Possui uma atmosfera rica em oxigênio, superfície com água em estado líquido e um campo magnético que protege contra radiações solares.
                     </p>
-                    <button type="button" class="btn">
-                        <strong>SAIBA MAIS</strong>
-                        <div id="container-stars">
-                            <div id="stars"></div>
-                        </div>
-                        <div id="glow">
-                            <div class="circle"></div>
-                            <div class="circle"></div>
-                        </div>
-                    </button>
+                     <a href="https://pt.wikipedia.org/wiki/Terra" target="_blank" rel="noopener noreferrer">
+                        <button type="button" class="btn">
+                            <strong>SAIBA MAIS</strong>
+                            <div id="container-stars"><div id="stars"></div></div>
+                            <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+                        </button>
+                    </a>
                 </div>
             </div>
 
@@ -196,16 +121,13 @@
                     <p>
                         Marte é conhecido como o “planeta vermelho” devido ao óxido de ferro em sua superfície. Apresenta calotas polares, estações do ano e evidências de que já teve água líquida em sua superfície.
                     </p>
-                    <button type="button" class="btn">
-                        <strong>SAIBA MAIS</strong>
-                        <div id="container-stars">
-                            <div id="stars"></div>
-                        </div>
-                        <div id="glow">
-                            <div class="circle"></div>
-                            <div class="circle"></div>
-                        </div>
-                    </button>
+                    <a href="https://pt.wikipedia.org/wiki/Marte_(planeta)" target="_blank" rel="noopener noreferrer">
+                        <button type="button" class="btn">
+                            <strong>SAIBA MAIS</strong>
+                            <div id="container-stars"><div id="stars"></div></div>
+                            <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+                        </button>
+                    </a>
                 </div>
             </div>
 
@@ -218,16 +140,13 @@
                     <p>
                         Júpiter é o maior planeta do Sistema Solar. É um gigante gasoso com dezenas de luas e conhecido pela Grande Mancha Vermelha, uma tempestade gigantesca que ocorre há séculos.
                     </p>
-                    <button type="button" class="btn">
-                        <strong>SAIBA MAIS</strong>
-                        <div id="container-stars">
-                            <div id="stars"></div>
-                        </div>
-                        <div id="glow">
-                            <div class="circle"></div>
-                            <div class="circle"></div>
-                        </div>
-                    </button>
+                    <a href="https://pt.wikipedia.org/wiki/Júpiter_(planeta)" target="_blank" rel="noopener noreferrer">
+                        <button type="button" class="btn">
+                            <strong>SAIBA MAIS</strong>
+                            <div id="container-stars"><div id="stars"></div></div>
+                            <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+                        </button>
+                    </a>
                 </div>
             </div>
 
@@ -240,16 +159,13 @@
                     <p>
                         Saturno é famoso por seus belos e extensos anéis compostos de gelo e rochas. É um planeta gasoso com mais de 80 luas, incluindo Titã, que possui uma atmosfera densa.
                     </p>
-                    <button type="button" class="btn">
-                        <strong>SAIBA MAIS</strong>
-                        <div id="container-stars">
-                            <div id="stars"></div>
-                        </div>
-                        <div id="glow">
-                            <div class="circle"></div>
-                            <div class="circle"></div>
-                        </div>
-                    </button>
+                    <a href="https://pt.wikipedia.org/wiki/Saturno_(planeta)" target="_blank" rel="noopener noreferrer">
+                        <button type="button" class="btn">
+                            <strong>SAIBA MAIS</strong>
+                            <div id="container-stars"><div id="stars"></div></div>
+                            <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+                        </button>
+                    </a>
                 </div>
             </div>
 
@@ -262,16 +178,13 @@
                     <p>
                         Urano é um gigante gasoso com coloração azul-esverdeada devido ao metano em sua atmosfera. Seu eixo de rotação é altamente inclinado, fazendo com que ele “role” em torno do Sol.
                     </p>
-                    <button type="button" class="btn">
-                        <strong>SAIBA MAIS</strong>
-                        <div id="container-stars">
-                            <div id="stars"></div>
-                        </div>
-                        <div id="glow">
-                            <div class="circle"></div>
-                            <div class="circle"></div>
-                        </div>
-                    </button>
+                     <a href="https://pt.wikipedia.org/wiki/Urano_(planeta)" target="_blank" rel="noopener noreferrer">
+                        <button type="button" class="btn">
+                            <strong>SAIBA MAIS</strong>
+                            <div id="container-stars"><div id="stars"></div></div>
+                            <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+                        </button>
+                    </a>
                 </div>
             </div>
 
@@ -284,16 +197,13 @@
                     <p>
                         Netuno é o planeta mais distante do Sol. Também é um gigante gasoso, conhecido por seus ventos fortíssimos e sua coloração azul intensa, causada pelo metano em sua atmosfera.
                     </p>
-                    <button type="button" class="btn">
-                        <strong>SAIBA MAIS</strong>
-                        <div id="container-stars">
-                            <div id="stars"></div>
-                        </div>
-                        <div id="glow">
-                            <div class="circle"></div>
-                            <div class="circle"></div>
-                        </div>
-                    </button>
+                    <a href="https://pt.wikipedia.org/wiki/Netuno_(planeta)" target="_blank" rel="noopener noreferrer">
+                        <button type="button" class="btn">
+                            <strong>SAIBA MAIS</strong>
+                            <div id="container-stars"><div id="stars"></div></div>
+                            <div id="glow"><div class="circle"></div><div class="circle"></div></div>
+                        </button>
+                    </a>
                 </div>
             </div>
 
