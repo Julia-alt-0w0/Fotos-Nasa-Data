@@ -46,7 +46,7 @@
 
 ## 🌐 Demonstração
 
-👉 [Acesse o AstronomyDay aqui](https://seuusuario.github.io/seurepositorio)
+👉 [Acesse o site: https://julia-alt-0w0.github.io/Fotos-Nasa-Data/]
 
 ## 📌 Observações
 
